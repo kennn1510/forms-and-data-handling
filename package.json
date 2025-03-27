@@ -1,0 +1,25 @@
+{
+  "name": "forms-and-data-handling",
+  "version": "1.0.0",
+  "description": "Following along with the Forms and Data Handling lesson in The Odin Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennn1510/forms-and-data-handling.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennn1510/forms-and-data-handling/issues"
+  },
+  "homepage": "https://github.com/kennn1510/forms-and-data-handling#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1"
+  }
+}
