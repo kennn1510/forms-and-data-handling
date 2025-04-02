@@ -1,4 +1,26 @@
+// This just shows the new stuff we're adding to the existing contents
+// controllers/usersController.js
 const usersStorage = require("../storages/usersStorage");
+
+exports.usersListGet = (req, res) => {
+  res.render("index", {
+    title: "User list",
+    users: usersStorage.getUsers(),
+  });
+};
+
+exports.usersCreateGet = (req, res) => {
+  res.render("createUser", {
+    title: "Create user",
+  });
+};
+
+exports.usersCreatePost = (req, res) => {
+  const { firstName, lastName } = req.body;
+  usersStorage.addUser({ firstName, lastName });
+  res.redirect("/");
+};
+
 const { body, validationResult } = require("express-validator");
 
 const alphaErr = "must only contain letters.";
@@ -19,19 +41,7 @@ const validateUser = [
     .withMessage(`Last name ${lengthErr}`),
 ];
 
-exports.usersListGet = (req, res) => {
-  res.render("index", {
-    title: "User list",
-    users: usersStorage.getUsers(),
-  });
-};
-
-exports.usersCreateGet = (req, res) => {
-  res.render("createUser", {
-    title: "Create user",
-  });
-};
-
+// We can pass an entire array of middleware validations to our controller.
 exports.usersCreatePost = [
   validateUser,
   (req, res) => {

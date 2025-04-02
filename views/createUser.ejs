@@ -1,3 +1,4 @@
+<!-- views/createUser.ejs -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,11 +7,10 @@
   <body>
     <h1><%= title %></h1>
     <%- include("partials/errors.ejs") %>
-
     <form action="/create" method="POST">
-      <label for="firstName">First Name:</label>
+      <label for="firstName">First Name: </label>
       <input type="text" name="firstName" id="firstName" required />
-      <label for="lastName">Last Name:</label>
+      <label for="lastName">Last Name: </label>
       <input type="text" name="lastName" id="lastName" required />
       <button type="submit">Submit</button>
     </form>
