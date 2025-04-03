@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <h1>Searched User</h1>
+    <%- include("partials/errors.ejs") %> ID: <%= user.id %><br />
+    Name: <%= user.firstName %> <%= user.lastName %><br />
+    Email: <%= user.email %> <br />
+    <% if (user.age) { %> Age: <%= user.age %> <br />
+    <% } %> <% if (user.bio) { %> Bio: <%= user.bio %> <br />
+    <% } %>
+  </body>
+</html>

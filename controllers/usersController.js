@@ -1,7 +1,7 @@
 // This just shows the new stuff we're adding to the existing contents
 // controllers/usersController.js
 const usersStorage = require("../storages/usersStorage");
-const { body, validationResult } = require("express-validator");
+const { body, query, validationResult } = require("express-validator");
 
 const alphaErr = "must only contain letters.";
 const lengthErr = "must be between 1 and 10 characters.";
@@ -46,12 +46,6 @@ exports.usersCreateGet = (req, res) => {
     title: "Create user",
   });
 };
-
-// exports.usersCreatePost = (req, res) => {
-//   const { firstName, lastName, email, age, bio } = req.body;
-//   usersStorage.addUser({ firstName, lastName, email, age, bio });
-//   res.redirect("/");
-// };
 
 // We can pass an entire array of middleware validations to our controller.
 exports.usersCreatePost = [
@@ -106,4 +100,18 @@ exports.usersUpdatePost = [
 exports.usersDeletePost = (req, res) => {
   usersStorage.deleteUser(req.params.id);
   res.redirect("/");
+};
+
+exports.usersSearchGet = (req, res) => {
+  const { search } = req.query;
+  const allUsers = usersStorage.getUsers();
+  for (const userObject of allUsers) {
+    for (const userKey in userObject) {
+      if (userObject[userKey] === search) {
+        res.render("search", {
+          user: usersStorage.getUser(userObject["id"]),
+        });
+      }
+    }
+  }
 };

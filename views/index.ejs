@@ -6,6 +6,17 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/search" method="get">
+      <label for="search">Search the list: </label>
+      <input
+        type="search"
+        id="search"
+        name="search"
+        placeholder="Search the list..."
+      />
+      <button>Search</button>
+    </form>
     <ul>
       <% if (locals.users) {%> <% users.forEach(user => { %>
       <li>
