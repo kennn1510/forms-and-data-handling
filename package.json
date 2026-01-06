@@ -19,7 +19,7 @@
   "homepage": "https://github.com/kennn1510/forms-and-data-handling#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "express-validator": "^7.3.1"
   }
 }
